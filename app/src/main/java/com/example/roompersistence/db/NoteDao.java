@@ -20,6 +20,6 @@ public interface NoteDao {
     @Query("SELECT * FROM note")
     List<Note> getAllDefaultNotes();
 
-    @Delete
+    @Query("DELETE FROM note")
     void deleteAll();
 }

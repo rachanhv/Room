@@ -17,6 +17,7 @@ public class NotesActivityViewModel extends AndroidViewModel {
     public List<Note> noteList;
     //public final LiveData<List<Note>> notes;
     AppDatabase mDb;
+    DatabaseInitializer databaseInitializer;
 
     public NotesActivityViewModel(Application application) {
         super(application);
@@ -30,7 +31,8 @@ public class NotesActivityViewModel extends AndroidViewModel {
     }
 
     public void addNote(String title, String discription) {
-        DatabaseInitializer.addNotes(mDb, title, discription);
+        databaseInitializer = new DatabaseInitializer(this.getApplication());
+        databaseInitializer.addNotes(mDb, title, discription);
     }
 
     public void createDb() {
