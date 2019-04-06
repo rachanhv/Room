@@ -17,7 +17,6 @@ public abstract class AppDatabase extends RoomDatabase {
                     .allowMainThreadQueries()
                     .build();
         }
-
         return INSTANCE;
     }
 

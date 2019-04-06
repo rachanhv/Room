@@ -52,19 +52,23 @@ public class NotesActivity extends AppCompatActivity {
                     Log.i("NotesActivity", notes.get(i).id + " | " + notes.get(i).title);
                 }*/
                 noteList = notes;
-                adapter.notifyDataSetChanged();
-                /*for (Note note : notes) {
+                //adapter.notifyDataSetChanged();
+                for (Note note : notes) {
                     Log.i("NotesActivity", note.id + " | " + note.title);
-                }*/
+                }
+                setRecyclerview(notes);
+
             }
         });
-        adapter = new NotesAdapter(NotesActivity.this, noteList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        myRecyclerview.setLayoutManager(mLayoutManager);
-        myRecyclerview.setItemAnimator(new DefaultItemAnimator());
-        myRecyclerview.setAdapter(adapter);
-    }
 
+    }
+public void setRecyclerview(List<Note> list){
+    adapter = new NotesAdapter(NotesActivity.this, list);
+    RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+    myRecyclerview.setLayoutManager(mLayoutManager);
+    myRecyclerview.setItemAnimator(new DefaultItemAnimator());
+    myRecyclerview.setAdapter(adapter);
+}
 
     @OnClick(R.id.fab)
     public void createReminder() {

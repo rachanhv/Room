@@ -20,6 +20,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     View view;
     List<Note> noteList = new ArrayList<>();
     Note note = new Note();
+    @BindView(R.id.txt_title)
+    TextView txtTitle;
+    @BindView(R.id.txt_description)
+    TextView txtDescription;
 
     public NotesAdapter(Context context, List<Note> notes) {
         this.noteList = notes;
@@ -36,8 +40,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         note = noteList.get(i);
-        viewHolder.txtTitle.setText(note.title);
-        viewHolder.txtDescription.setText(note.description);
+        txtTitle.setText(note.title);
+        txtDescription.setText(note.description);
 
     }
 
@@ -48,10 +52,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.txt_title)
-        TextView txtTitle;
-        @BindView(R.id.txt_description)
-        TextView txtDescription;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
