@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.roompersistence.utils.DateConverter;
 import com.example.roompersistence.db.Note;
 
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     TextView txtTitle;
     @BindView(R.id.txt_description)
     TextView txtDescription;
+    @BindView(R.id.txt_time)
+    TextView txtTime;
 
     public NotesAdapter(Context context, List<Note> notes) {
         this.noteList = notes;
@@ -42,7 +45,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
         note = noteList.get(i);
         txtTitle.setText(note.title);
         txtDescription.setText(note.description);
-
+        txtTime.setText(DateConverter.fromDateToString(note.forDay));
     }
 
     @Override
@@ -51,8 +54,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }

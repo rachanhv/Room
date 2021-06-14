@@ -9,6 +9,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -29,6 +30,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:' + rootProject.supportLibVersion
     implementation 'com.android.support:support-v4:' + rootProject.supportLibVersion
     implementation 'com.android.support:design:' + rootProject.supportLibVersion
+
     //Recyclerview
     implementation 'com.android.support:recyclerview-v7:' + rootProject.supportLibVersion
 
@@ -41,6 +43,6 @@ dependencies {
     annotationProcessor 'android.arch.persistence.room:compiler:' + rootProject.archRoomVersion
 
     //Butterknife dependency injuction
-    implementation 'com.jakewharton:butterknife:' + rootProject.butterKnifeVersion //10.1.0
+    implementation 'com.jakewharton:butterknife:' + rootProject.butterKnifeVersion //
     annotationProcessor 'com.jakewharton:butterknife-compiler:' + rootProject.butterKnifeVersion
 }

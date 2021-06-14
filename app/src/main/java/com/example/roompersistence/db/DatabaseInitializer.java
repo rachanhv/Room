@@ -3,21 +3,22 @@ package com.example.roompersistence.db;
 import android.arch.persistence.room.Room;
 import android.content.Context;
 
+import java.util.Date;
+
 public class DatabaseInitializer {
 
-    private String DB_NAME = "db_task";
-
-    AppDatabase appDatabase;
-
-    public DatabaseInitializer(Context context) {
-        appDatabase = Room.databaseBuilder(context, AppDatabase.class, DB_NAME).build();
-    }
-
-    public static Note addNotes(final AppDatabase database, final String title, final String description) {
+    public static void addNotes(final AppDatabase database, final String title, final String description, Date date) {
         Note note = new Note();
         note.title = title;
         note.description = description;
+        note.forDay = date;
         database.noteDao().insertReminder(note);
-        return note;
+    }
+    public static void deleteNoteTable(final AppDatabase database){
+        database.noteDao().deleteAll();
+    }
+
+    public static void deleteSelectedRowFromTable(final AppDatabase database,Note note){
+        database.noteDao().deleteRecord(note);
     }
 }
